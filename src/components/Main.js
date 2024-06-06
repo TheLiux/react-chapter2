@@ -1,3 +1,5 @@
+import Col from "./Col";
+
 export default function Main(props) {
-    return <div className="col-9 p-3">Main</div>
+    return <Col size={9}>Main</Col>
 }
