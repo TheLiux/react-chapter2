@@ -1,20 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
 function AppTitle() {
-    return <h1>Todo app</h1>;
+  return <h1>Todo app</h1>;
 }
 
-function AppMessage() {
-    return <p>Sium</p>;
+const defaultImage = "https://via.placeholder.com/32x32.png";
+
+function getImageOrDefaultURL(imageUrl) {
+  try {
+    new URL(imageUrl);
+    return imageUrl;
+  } catch {
+    return defaultImage;
+  }
 }
 
-
-function App() {
-    return (<div>
-        <AppTitle/>
-        <AppMessage/>
-    </div>);
+function AppMessage({ user: { id, name, image } }) {
+  return (
+    <p>
+      Benvenuto {name} ({id})!
+      <img src={getImageOrDefaultURL(image)} width="32" height="32" />
+    </p>
+  );
 }
 
-export default App;
+const user = {
+  id: 1,
+  name: "Stefano",
+  image: "https://github.com/TheLiux.png",
+};
+
+export default function App() {
+  return (
+    <div>
+      <AppTitle />
+      <AppMessage user={user} />
+    </div>
+  );
+}
