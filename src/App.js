@@ -1,8 +1,5 @@
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Main from "./components/Main";
-
-const defaultImage = "https://via.placeholder.com/32x32.png";
-
 
 const user = {
     id: 1,
